@@ -9,17 +9,17 @@
 ### 使用
 
 - 在 Telegram 找 BotFather 机器人选择关闭 TG 机器人的 Group Privacy Mode 
-- 从 Release 页面下载最新版 Jar
+- 从 Release 页面下载最新版安装包
 - 上传到服务器上
-- 在服务器上安装 Java 运行时环境
-- 在 Jar 同目录下建立 `env` 文件
-   - 第一行为 TG 机器人的 Token
-   - 第二行为 TG 机器人管理员的 ID（可暂时填个 0 ，等上线后通过 `/rainbow` 指令查询自己的 ID ）
-   - 第三行为 QQ 机器人的 QQ 号
-   - 第四行为 QQ 机器人的密码
-   - 第五行为 QQ 机器人管理员
-- `java -Dmirai.slider.captcha.supported -jar tesseract.jar`
-- 如果有则按照 [教程](https://github.com/project-mirai/mirai-login-solver-selenium) 手工处理验证码
+- 在服务器上安装 `default-jre` 和 `daemon` 软件包后再安装彩虹桥，安装后会将彩虹桥机器人服务设为开机自启
+- 配置文件 `/etc/rainbow.conf` ，修改其中的
+   - 第一行 为 TG 机器人的 Token
+   - 第二行 为 TG 机器人管理员的 ID（可暂时填个 0 ，等上线后通过 `/rainbow` 指令查询自己的 ID ）
+   - 第三行 为 QQ 机器人的 QQ 号
+   - 第四行 为 QQ 机器人的 QQ 密码
+   - 第五行 为 QQ 机器人管理员的 QQ 号
+- 初次登录请使用 `sudo rainbow` 命令来启动彩虹桥，如果提示需要手工处理验证码，请参照[教程](https://github.com/project-mirai/mirai-login-solver-selenium)
+- 成功登录后退出进程，使用 `sudo systemctl start rainbow.service` 来启动，彩虹桥机器人服务将由 `systemd` 管理并守护进程
 
 ### QQ 指令
 
